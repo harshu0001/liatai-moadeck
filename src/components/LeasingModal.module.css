@@ -1,0 +1,300 @@
+/* Backdrop */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+}
+
+/* Sliding panel */
+.panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 520px;
+  height: 100%;
+  background: #0a0a0a;
+  border-left: 1px solid rgba(212, 175, 55, 0.2);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212,175,55,0.3) transparent;
+  box-shadow: -8px 0 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Gold shimmer top edge */
+.panel::before {
+  content: '';
+  position: sticky;
+  top: 0;
+  display: block;
+  height: 2px;
+  background: linear-gradient(to right, transparent, var(--brand-gold), transparent);
+  opacity: 0.7;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  z-index: 10;
+}
+
+.closeBtn:hover {
+  background: var(--brand-gold);
+  color: #000;
+  border-color: var(--brand-gold);
+}
+
+/* Inner scroll container */
+.inner {
+  padding: 48px 36px 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+/* ── Header ──────────────────────────────────────────── */
+.header {
+  padding-top: 8px;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
+
+.title {
+  font-family: var(--font-playfair);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.titleDivider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(to right, var(--brand-gold), transparent);
+  margin-bottom: 1.2rem;
+}
+
+.subtitle {
+  font-family: var(--font-inter);
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.75;
+}
+
+/* ── Stats strip ─────────────────────────────────────── */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.statItem {
+  background: rgba(255,255,255,0.02);
+  padding: 1.2rem 0.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.statVal {
+  font-family: var(--font-playfair);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  line-height: 1;
+}
+
+.statLbl {
+  font-size: 0.58rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  font-family: var(--font-inter);
+}
+
+/* ── Section heading ─────────────────────────────────── */
+.sectionTitle {
+  font-family: var(--font-inter);
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+}
+
+/* ── Opportunity cards ────────────────────────────────── */
+.oppsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.oppCard {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 4px;
+  padding: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.oppCard:hover {
+  border-color: rgba(212,175,55,0.3);
+  background: rgba(212,175,55,0.04);
+}
+
+.oppIcon {
+  width: 34px;
+  height: 34px;
+  background: rgba(212,175,55,0.1);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-gold);
+  margin-bottom: 0.8rem;
+}
+
+.oppTitle {
+  font-family: var(--font-inter);
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.oppDesc {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.65;
+  font-family: var(--font-inter);
+}
+
+/* ── Why list ─────────────────────────────────────────── */
+.whyList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.whyList li {
+  font-family: var(--font-inter);
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.6;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.whyList li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--brand-gold);
+  font-size: 0.55rem;
+  top: 0.25rem;
+}
+
+.whyList strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ── Contact ──────────────────────────────────────────── */
+.contactGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 1.4rem;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-inter);
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.contactItem:hover {
+  color: var(--brand-gold);
+}
+
+.contactItem svg {
+  color: var(--brand-gold);
+  opacity: 0.7;
+  flex-shrink: 0;
+}
+
+.ctaBtn {
+  display: inline-block;
+  padding: 10px 24px;
+  background: transparent;
+  border: 1px solid var(--brand-gold);
+  color: var(--brand-gold);
+  font-family: var(--font-inter);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ctaBtn:hover {
+  background: var(--brand-gold);
+  color: #000;
+}
+
+@media (max-width: 600px) {
+  .panel {
+    max-width: 100%;
+  }
+  .oppsGrid {
+    grid-template-columns: 1fr;
+  }
+  .statsRow {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .inner {
+    padding: 48px 20px 32px;
+  }
+}

@@ -1,0 +1,316 @@
+/* ── Full page ─────────────────────────────────────────────── */
+.page {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Subtle grid background */
+.bgGrid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(212, 175, 55, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(212, 175, 55, 0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Gold vertical accent bar */
+.accentBar {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  width: 3px;
+  height: 80%;
+  background: linear-gradient(to bottom, transparent, var(--brand-gold), transparent);
+  opacity: 0.4;
+}
+
+/* ── Two-column inner layout ───────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 6rem 4vw;
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* ── LEFT column ───────────────────────────────────────────── */
+.left {
+  flex: 0 0 38%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.62rem;
+  letter-spacing: 0.5em;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  opacity: 0.85;
+}
+
+.heading {
+  font-family: var(--font-playfair);
+  font-size: clamp(2.4rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1.2rem;
+}
+
+.headingGold {
+  color: #ffffff;
+  filter:
+    drop-shadow(0 0 6px #d4af37)
+    drop-shadow(0 0 18px #d4af37bb)
+    drop-shadow(0 0 40px #f9f29566);
+}
+
+.divider {
+  width: 48px;
+  height: 2px;
+  background: linear-gradient(to right, var(--brand-gold), transparent);
+  margin-bottom: 1.4rem;
+}
+
+.intro {
+  font-family: var(--font-inter);
+  font-size: 0.88rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+/* Stats strip */
+.statsRow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.statVal {
+  font-family: var(--font-playfair);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  line-height: 1;
+}
+
+.statLbl {
+  font-size: 0.52rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  font-family: var(--font-inter);
+  text-align: center;
+}
+
+/* Contact block */
+.contactBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 1.8rem;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-inter);
+  font-size: 0.76rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.contactRow:hover {
+  color: var(--brand-gold);
+}
+
+.contactRow svg {
+  color: var(--brand-gold);
+  opacity: 0.65;
+  flex-shrink: 0;
+}
+
+/* CTA button */
+.ctaBtn {
+  display: inline-block;
+  padding: 10px 24px;
+  border: 1px solid var(--brand-gold);
+  color: var(--brand-gold);
+  font-family: var(--font-inter);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  align-self: flex-start;
+}
+
+.ctaBtn:hover {
+  background: var(--brand-gold);
+  color: #000;
+}
+
+/* ── RIGHT column ──────────────────────────────────────────── */
+.right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid rgba(212, 175, 55, 0.18);
+  padding-left: 3rem;
+}
+
+.colLabel {
+  font-family: var(--font-inter);
+  font-size: 0.6rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--brand-gold);
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  opacity: 0.85;
+}
+
+/* Opportunity cards grid */
+.oppsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.oppCard {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 0.8rem;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.oppCard:hover {
+  border-color: rgba(212, 175, 55, 0.28);
+  background: rgba(212, 175, 55, 0.035);
+}
+
+.oppIcon {
+  width: 30px;
+  height: 30px;
+  background: rgba(212, 175, 55, 0.1);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-gold);
+  margin-bottom: 0.7rem;
+}
+
+.oppTitle {
+  font-family: var(--font-inter);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #ffffff;
+  margin-bottom: 0.45rem;
+}
+
+.oppDesc {
+  font-family: var(--font-inter);
+  font-size: 0.72rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.65;
+}
+
+/* Why list */
+.whyList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 1rem;
+  backdrop-filter: blur(8px);
+}
+
+.whyList li {
+  font-family: var(--font-inter);
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.whyList li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  color: var(--brand-gold);
+  font-size: 0.5rem;
+  top: 0.3rem;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .page {
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+
+  .inner {
+    flex-direction: column;
+    padding: 5rem 6vw 3rem;
+    gap: 2.5rem;
+  }
+
+  .left { flex: none; width: 100%; }
+
+  .right {
+    border-left: none;
+    border-top: 1px solid rgba(212, 175, 55, 0.15);
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+
+  .statsRow { grid-template-columns: repeat(2, 1fr); }
+  .oppsGrid { grid-template-columns: 1fr; }
+}

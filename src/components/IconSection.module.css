@@ -1,0 +1,271 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+/* ── Background video ─────────────────────────────────────── */
+.bgVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  z-index: 0;
+}
+
+/* Very light scrim — just enough to keep text legible */
+.videoOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.22) 60%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+/* Subtle gold radial texture */
+.bgPattern {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Accent bars ──────────────────────────────────────────── */
+.accentBarLeft {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--brand-gold) 30%,
+    var(--brand-gold) 70%,
+    transparent 100%
+  );
+  z-index: 10;
+}
+
+.accentBarRight {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(
+    to bottom,
+    transparent 0%,
+    var(--brand-gold) 30%,
+    var(--brand-gold) 70%,
+    transparent 100%
+  );
+  z-index: 10;
+}
+
+/* ── Split two-column layout ──────────────────────────────── */
+.splitLayout {
+  position: relative;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 5vw;
+  gap: 4vw;
+}
+
+/* LEFT column — heading block */
+.leftCol {
+  flex: 0 0 42%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2.5rem 2.5rem 2.5rem 2rem;
+}
+
+/* RIGHT column — body + stats */
+.rightCol {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  padding: 2.5rem 2.5rem 2.5rem 3rem;
+  border-left: 2px solid rgba(212, 175, 55, 0.25);
+}
+
+/* Optional frosted-glass panel — added only where needed */
+.glass {
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+}
+
+/* ── Breadcrumb ───────────────────────────────────────────── */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumbSection {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: rgba(255, 255, 255, 0.65);
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+}
+
+.breadcrumbSep {
+  color: var(--brand-gold);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.breadcrumbPage {
+  font-size: 0.65rem;
+  letter-spacing: 0.4em;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 700;
+}
+
+/* ── Eyebrow ──────────────────────────────────────────────── */
+.eyebrow {
+  display: block;
+  font-size: 0.7rem;
+  letter-spacing: 0.5em;
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow:
+    0 0 6px #00e676,
+    0 0 18px #00e676aa,
+    0 0 40px #00e67666;
+}
+
+/* ── Heading ──────────────────────────────────────────────── */
+.heading {
+  font-family: var(--font-playfair);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  text-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1),
+    0 2px 12px rgba(0, 0, 0, 0.8),
+    0 4px 32px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Gold divider ─────────────────────────────────────────── */
+.divider {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to right, var(--brand-gold), transparent);
+  margin-top: 0.5rem;
+}
+
+/* ── Body text ────────────────────────────────────────────── */
+.body {
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.85;
+  font-family: var(--font-inter);
+  font-weight: 400;
+  max-width: 520px;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* ── Stats row ────────────────────────────────────────────── */
+.stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statValue {
+  font-family: var(--font-playfair);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1;
+  text-shadow:
+    0 0 6px #d4af37,
+    0 0 18px #d4af37bb,
+    0 0 40px #f9f29566;
+}
+
+.statLabel {
+  font-size: 0.65rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #ffffff;
+  font-family: var(--font-inter);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .splitLayout {
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 6rem 6vw 3rem;
+    gap: 2rem;
+    overflow-y: auto;
+  }
+
+  .leftCol {
+    flex: none;
+    max-width: 100%;
+    width: 100%;
+    padding: 0;
+  }
+
+  .rightCol {
+    flex: none;
+    width: 100%;
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding-left: 0;
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .heading {
+    font-size: clamp(2.2rem, 8vw, 3.5rem);
+  }
+
+  .stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+}

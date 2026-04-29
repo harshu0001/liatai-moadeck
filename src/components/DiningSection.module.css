@@ -1,0 +1,243 @@
+/* ── Full page ─────────────────────────────────────────────── */
+.section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #050505;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.bgImage {
+  object-fit: cover;
+  filter: brightness(0.35) sepia(0.2) hue-rotate(-10deg);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.7) 40%, transparent 100%);
+}
+
+/* ── Inner layout ───────────────────────────────── */
+.inner {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 6rem 4vw;
+  display: flex;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* ── LEFT column ───────────────────────────────────────────── */
+.left {
+  flex: 0 0 42%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.eyebrow {
+  display: block;
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  font-family: var(--font-inter);
+  font-weight: 700;
+  margin-bottom: 1.2rem;
+  opacity: 0.9;
+}
+
+.title {
+  font-family: var(--font-playfair);
+  font-size: clamp(2.5rem, 4.5vw, 4rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+
+.neonTurquoise {
+  color: #ffffff;
+  text-shadow: 
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #06b6d4,
+    0 0 40px #06b6d4,
+    0 0 80px #06b6d4,
+    0 0 90px #06b6d4,
+    0 0 100px #06b6d4;
+}
+
+.divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(to right, var(--brand-gold), transparent);
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  font-family: var(--font-inter);
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.75);
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+}
+
+/* Stats strip */
+.statsRow {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 2rem;
+}
+
+.statItem {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.statVal {
+  font-family: var(--font-playfair);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--brand-gold);
+  line-height: 1;
+  filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
+}
+
+.statLbl {
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-inter);
+}
+
+/* ── RIGHT column (Cards) ──────────────────────────────────── */
+.right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  position: relative;
+}
+
+/* Stagger the second column slightly */
+.cardWrapper:nth-child(even) {
+  margin-top: 3rem;
+}
+
+.restaurantCard {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 1.8rem;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.restaurantCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.restaurantCard:hover {
+  background: rgba(20, 20, 20, 0.8);
+  border-color: rgba(212, 175, 55, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+.restaurantCard:hover::before {
+  opacity: 1;
+}
+
+.cardIcon {
+  color: var(--brand-gold);
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.cardTitle {
+  font-family: var(--font-playfair);
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.cardType {
+  font-family: var(--font-inter);
+  font-size: 0.6rem;
+  color: var(--brand-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.cardDesc {
+  font-family: var(--font-inter);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+}
+
+/* ── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .section {
+    align-items: flex-start;
+    overflow-y: auto;
+  }
+  
+  .inner {
+    flex-direction: column;
+    padding: 6rem 5vw 3rem;
+    gap: 3rem;
+  }
+  
+  .left {
+    flex: none;
+    width: 100%;
+  }
+  
+  .right {
+    width: 100%;
+  }
+  
+  .cardWrapper:nth-child(even) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .right {
+    grid-template-columns: 1fr;
+  }
+  .statsRow {
+    gap: 1.5rem;
+  }
+}

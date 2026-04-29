@@ -1,0 +1,99 @@
+:root {
+  /* Core Palette - Luxury Dark Theme */
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #141414;
+  --bg-accent: #1a1a1a;
+  
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --text-dim: rgba(255, 255, 255, 0.4);
+  
+  --brand-gold: #d4af37;
+  --brand-gold-muted: rgba(212, 175, 55, 0.3);
+  --brand-gold-glow: rgba(212, 175, 55, 0.15);
+  
+  --accent-blue: #0070f3;
+  
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 8rem;
+
+  /* Transitions */
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-slow: all 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: var(--font-inter), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-accent);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-gold);
+}
+
+/* Utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cinematic-vignette {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.4) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #d4af37 0%, #f9f295 50%, #d4af37 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Hide default Next.js stuff */
+main {
+  min-height: 100vh;
+}

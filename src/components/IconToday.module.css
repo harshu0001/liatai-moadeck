@@ -1,0 +1,21 @@
+/* Light scrim over the video */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.18) 0%,
+    rgba(0, 0, 0, 0.22) 60%,
+    rgba(0, 0, 0, 0.35) 100%
+  );
+}
+
+/* Gold divider — right-aligned to match heading */
+.dividerRight {
+  width: 50px;
+  height: 2px;
+  background: linear-gradient(to left, var(--brand-gold), transparent);
+  margin-top: 0.5rem;
+  align-self: flex-end;
+}

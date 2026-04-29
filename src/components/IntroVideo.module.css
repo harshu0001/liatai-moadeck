@@ -1,0 +1,83 @@
+.videoContainer {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.controls {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 16px;
+  z-index: 100;
+}
+
+.controlBtn {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: #fff;
+  padding: 14px 24px;
+  border-radius: 50px; /* Pill shape for premium feel */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-family: var(--font-inter);
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.controlBtn:hover {
+  background: rgba(212, 175, 55, 0.15);
+  border-color: var(--brand-gold);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+}
+
+.skipBtn {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.skipBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+.btnText {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .controls {
+    flex-direction: column;
+    gap: 10px;
+    bottom: 20px;
+  }
+  
+  .controlBtn {
+    padding: 10px 16px;
+  }
+  
+  .btnText {
+    display: none; /* Icon only on small screens */
+  }
+}

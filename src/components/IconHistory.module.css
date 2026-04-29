@@ -1,0 +1,178 @@
+/* ── Background carousel container ─────────────────────────── */
+.carousel {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.carouselSlide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  will-change: opacity, transform;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(0, 0, 0, 0.28) 60%,
+    rgba(0, 0, 0, 0.42) 100%
+  );
+}
+
+/* ── Dot indicators ─────────────────────────────────────────── */
+.dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.35s ease;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.dotActive {
+  width: 24px;
+  border-radius: 3px;
+  background: var(--brand-gold);
+  box-shadow:
+    0 0 6px #d4af37,
+    0 0 14px #d4af3788;
+}
+
+/* ── Parchment letter ───────────────────────────────────────── */
+.letterWrap {
+  position: relative;
+  background: linear-gradient(
+    160deg,
+    #f9f0d8 0%,
+    #f0e0b4 40%,
+    #ead6a0 70%,
+    #e2cb90 100%
+  );
+  border-radius: 3px 3px 6px 6px;
+  padding: 0 1.6rem 1.4rem;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.45),
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 0 60px rgba(139, 90, 43, 0.07);
+  border: 1px solid rgba(139, 90, 43, 0.25);
+  overflow: hidden;
+  /* Max height so it doesn't overflow the layout */
+  max-height: 280px;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.letterWrap::-webkit-scrollbar {
+  display: none;
+}
+
+/* Top crease / fold line */
+.creaseTop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(139, 90, 43, 0.18) 20%,
+    rgba(139, 90, 43, 0.28) 50%,
+    rgba(139, 90, 43, 0.18) 80%,
+    transparent
+  );
+}
+
+/* Letter header row */
+.letterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0 0.6rem;
+  border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+  margin-bottom: 0.8rem;
+}
+
+.letterDate {
+  font-family: var(--font-playfair), serif;
+  font-size: 0.7rem;
+  color: rgba(80, 45, 10, 0.65);
+  letter-spacing: 0.12em;
+  font-style: italic;
+}
+
+.letterSeal {
+  font-size: 1rem;
+  color: rgba(180, 120, 30, 0.5);
+}
+
+/* Subtle horizontal ruled lines behind the text */
+.ruledLines {
+  position: absolute;
+  inset: 60px 0 0 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    rgba(139, 90, 43, 0.1) 27px,
+    rgba(139, 90, 43, 0.1) 28px
+  );
+  pointer-events: none;
+}
+
+/* Letter body text */
+.letterText {
+  font-family: var(--font-playfair), serif;
+  font-size: 0.88rem;
+  line-height: 1.95;
+  color: #3a220e;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+  white-space: pre-wrap;
+  min-height: 160px;
+}
+
+/* Blinking cursor */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 0.9em;
+  background: #3a220e;
+  vertical-align: text-bottom;
+  margin-left: 1px;
+  border-radius: 1px;
+  animation: cursorBlink 0.65s step-end infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
