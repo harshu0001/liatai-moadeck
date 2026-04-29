@@ -1,10 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
 import styles from "./ContentSection.module.css";
+import EventsModal from "./EventsModal";
 
 export default function EventsSection() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <section className={styles.section}>
       <div className={styles.imageWrapper}>
@@ -44,8 +48,23 @@ export default function EventsSection() {
               <span className={styles.featureLabel}>Total Visitors</span>
             </div>
           </div>
+          
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => setIsModalOpen(true)}
+            style={{ marginTop: "3rem", padding: "14px 32px", background: "#facc15", color: "#000", border: "none", borderRadius: "30px", fontWeight: "bold", letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px" }}
+          >
+            Explore Hosting Capabilities
+          </motion.button>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {isModalOpen && (
+          <EventsModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

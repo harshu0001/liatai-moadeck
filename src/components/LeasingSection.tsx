@@ -1,9 +1,11 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { Building2, Utensils, Sparkles, Star, MapPin, Phone, Mail } from "lucide-react";
+import { useState } from "react";
 import styles from "./LeasingSection.module.css";
+import LeasingModal from "./LeasingModal";
 
 const opportunities = [
   {
@@ -47,6 +49,8 @@ const container: Variants = { hidden: {}, show: { transition: { staggerChildren:
 const fadeUp: Variants = { hidden: { opacity: 0, y: 28 }, show: { opacity: 1, y: 0, transition: { duration: 0.65, ease: "easeOut" } } };
 
 export default function LeasingSection() {
+  const [selectedCategory, setSelectedCategory] = useState<{title: string, desc: string} | null>(null);
+
   return (
     <section className={styles.page}>
 
@@ -146,6 +150,8 @@ export default function LeasingSection() {
                 <motion.div
                   key={opp.title}
                   className={styles.oppCard}
+                  onClick={() => setSelectedCategory(opp)}
+                  style={{ cursor: "pointer" }}
                   initial={initialAnim}
                   whileInView={{ opacity: 1, x: 0, y: 0 }}
                   viewport={{ once: true }}
@@ -176,6 +182,16 @@ export default function LeasingSection() {
 
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {selectedCategory && (
+          <LeasingModal 
+            isOpen={!!selectedCategory} 
+            category={selectedCategory} 
+            onClose={() => setSelectedCategory(null)} 
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
