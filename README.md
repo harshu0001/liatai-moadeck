@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mall of America | Immersive Sales Experience
 
-## Getting Started
+A premium, high-fidelity interactive sales deck built for Mall of America. This application provides a cinematic, data-driven journey through the property's core offerings, featuring immersive video transitions, interactive data modules, and expandable architecture for deep-dive exploration.
 
-First, run the development server:
+## 🚀 Core Features
 
+- **Cinematic Experience**: Immersive video-first landing page and intro sequences designed to capture the scale and energy of the property.
+- **Interactive Deck Navigation**: A horizontal slideshow-style navigation system with custom progress tracking and quick-access menu.
+- **Expandable Architecture (Phase 2)**: 
+  - **Leasing Paths**: Clickable opportunity cards that launch deep-dive modals with category-specific analytics and strategic positioning.
+  - **Events Module**: Dedicated sub-module for venue-specific hosting capabilities, AV specs, and past highlights.
+- **Fully Responsive**: Optimized for Desktop, Tablet, and Mobile devices with smart layout stacking and vertical scrolling within interactive slides.
+- **Data-Driven Visuals**: Premium AI-generated architectural blueprints and cinematic photography backgrounds.
+- **Performant Animations**: Fluid, high-performance entrance and exit animations powered by Framer Motion.
+
+## 🛠️ Tech Stack
+
+- **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
+- **Styling**: Vanilla CSS Modules (Luxury dark theme aesthetic)
+- **Animations**: [Framer Motion](https://www.framer.com/motion/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Large Assets**: Git LFS (Large File Storage) for optimized video hosting.
+
+## 💻 Local Setup
+
+Follow these steps to get the project running on your local machine:
+
+### 1. Prerequisites
+Ensure you have **Node.js (v18.0 or higher)** installed.
+
+### 2. Clone the Repository
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/harshu0001/liatai-moadeck.git
+cd liatai-moadeck
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 3. Install Dependencies
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 4. Git LFS (Important)
+This project uses Git LFS to manage large video files. Ensure you have Git LFS installed on your system before pulling.
+```bash
+git lfs install
+git lfs pull
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 5. Run Development Server
+```bash
+npm run dev
+```
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-## Learn More
+## 📦 Build for Production
 
-To learn more about Next.js, take a look at the following resources:
+To create an optimized production build:
+```bash
+npm run build
+npm run start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📄 License
+This project is for demonstration and sales deck purposes. All rights to Mall of America assets belong to their respective owners.
