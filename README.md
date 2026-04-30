@@ -1,27 +1,17 @@
 # Mall of America | Immersive Sales Experience
 
-A premium, high-fidelity interactive sales deck built for Mall of America. This application provides a cinematic, data-driven journey through the property's core offerings, featuring immersive video transitions, interactive data modules, and expandable architecture for deep-dive exploration.
+A premium, high-fidelity interactive sales deck built for Mall of America. This application provides a cinematic, data-driven journey through the property's core offerings, featuring immersive video transitions, interactive data modules, and expandable architecture for deep-dive exploration. It serves as a self-contained web application that acts as a modern, high-impact sales tool.
 
-## 🚀 Core Features
-
-- **Cinematic Experience**: Immersive video-first landing page and intro sequences designed to capture the scale and energy of the property.
-- **Interactive Deck Navigation**: A horizontal slideshow-style navigation system with custom progress tracking and quick-access menu.
-- **Expandable Architecture (Phase 2)**: 
-  - **Leasing Paths**: Clickable opportunity cards that launch deep-dive modals with category-specific analytics and strategic positioning.
-  - **Events Module**: Dedicated sub-module for venue-specific hosting capabilities, AV specs, and past highlights.
-- **Fully Responsive**: Optimized for Desktop, Tablet, and Mobile devices with smart layout stacking and vertical scrolling within interactive slides.
-- **Data-Driven Visuals**: Premium AI-generated architectural blueprints and cinematic photography backgrounds.
-- **Performant Animations**: Fluid, high-performance entrance and exit animations powered by Framer Motion.
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Framework**: [Next.js 15+](https://nextjs.org/) (App Router)
-- **Styling**: Vanilla CSS Modules (Luxury dark theme aesthetic)
+- **Language**: TypeScript
+- **Styling**: Vanilla CSS Modules (Luxury dark theme aesthetic, adhering to strict design guidelines)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Large Assets**: Git LFS (Large File Storage) for optimized video hosting.
+- **Linting & Formatting**: ESLint, Prettier
 
-## 💻 Local Setup
+## Setup Instructions
 
 Follow these steps to get the project running on your local machine:
 
@@ -39,26 +29,32 @@ cd liatai-moadeck
 npm install
 ```
 
-### 4. Git LFS (Important)
-This project uses Git LFS to manage large video files. Ensure you have Git LFS installed on your system before pulling.
-```bash
-git lfs install
-git lfs pull
-```
-
-### 5. Run Development Server
+### 4. Run Development Server
 ```bash
 npm run dev
 ```
 Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-## 📦 Build for Production
-
+### 5. Build for Production
 To create an optimized production build:
 ```bash
 npm run build
 npm run start
 ```
 
-## 📄 License
+## Design Decisions
+
+- **Video-First Storytelling**: Video is utilized as the primary storytelling medium rather than mere decoration. Features such as autoplay and background videos are implemented to create an immediate emotional connection and showcase the scale of the property within the first few seconds.
+- **Luxury-Inspired UI**: The interface draws inspiration from premium luxury brands. It employs a minimalist "dark theme" chrome, maximizing the impact of visuals and data-driven content while reducing cognitive load.
+- **Non-Linear Interactive Navigation**: Moving away from traditional slide decks, the architecture allows users to control their own journey. A custom slideshow-style navigation system with intuitive progress tracking encourages exploration of the core offerings (Retail, Dining, Entertainment).
+- **Expandable Architecture**: The system is designed with modularity in mind. "Phase 2" components, such as the Leasing and Events deep-dive modals, dynamically expand to provide specific analytics, highlights, and clear calls-to-action without requiring a full page reload or breaking the immersive experience.
+- **Performance Optimization**: Emphasizing a 90+ Lighthouse score, the project leverages Next.js static and dynamic imports, lazy loading for large components, and optimized asset handling. Videos and heavy imagery are strategically loaded to protect critical paint times (LCP).
+
+## AI Tools Used
+
+- **Asset Generation & Enhancement**: Generative AI tools were utilized to conceptualize and generate high-quality architectural blueprints, abstract background textures, and placeholder imagery where real media assets were unavailable, ensuring visual consistency and quality.
+- **Code Generation & Architecture Support**: AI coding assistants were leveraged to accelerate development, specifically in structuring the Next.js App Router, configuring complex Framer Motion animations, and fine-tuning responsive CSS layouts across different device breakpoints.
+- **Performance Analysis**: AI-driven analysis was used to identify performance bottlenecks and suggest optimizations for video preloading strategies, dynamic module loading, and ensuring high Lighthouse scores.
+
+## License
 This project is for demonstration and sales deck purposes. All rights to Mall of America assets belong to their respective owners.
