@@ -160,6 +160,7 @@ export default function StatsSection() {
           src="/images/scale.jpg"
           alt="Mall of America Exterior"
           fill
+          sizes="100vw"
           className={styles.bgImage}
         />
         <div className={styles.overlay} />

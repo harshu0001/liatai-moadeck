@@ -3,22 +3,25 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 import { useDeck } from "@/components/DeckContext";
-import CinematicIntro from "@/components/CinematicIntro";
-import IntroVideo from "@/components/IntroVideo";
-import StatsSection from "@/components/StatsSection";
-import RetailSection from "@/components/RetailSection";
-import DiningSection from "@/components/DiningSection";
-import EntertainmentSection from "@/components/EntertainmentSection";
-import EventsSection from "@/components/EventsSection";
-import IconAbout from "@/components/IconAbout";
-import IconHistory from "@/components/IconHistory";
-import IconToday from "@/components/IconToday";
-import WhyPropertySection from "@/components/WhyPropertySection";
-import LeasingSection from "@/components/LeasingSection";
-import EntNickelodeon from "@/components/EntNickelodeon";
-import EntOther from "@/components/EntOther";
+import dynamic from "next/dynamic";
 import styles from "./page.module.css";
 
+const IntroVideo = dynamic(() => import("@/components/IntroVideo"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const CinematicIntro = dynamic(() => import("@/components/CinematicIntro"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const IconAbout = dynamic(() => import("@/components/IconAbout"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+
+// Dynamic imports for subsequent slides to keep initial bundle size manageable
+const StatsSection = dynamic(() => import("@/components/StatsSection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const RetailSection = dynamic(() => import("@/components/RetailSection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const DiningSection = dynamic(() => import("@/components/DiningSection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const EntertainmentSection = dynamic(() => import("@/components/EntertainmentSection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const EventsSection = dynamic(() => import("@/components/EventsSection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const IconHistory = dynamic(() => import("@/components/IconHistory"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const IconToday = dynamic(() => import("@/components/IconToday"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const WhyPropertySection = dynamic(() => import("@/components/WhyPropertySection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const LeasingSection = dynamic(() => import("@/components/LeasingSection"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const EntNickelodeon = dynamic(() => import("@/components/EntNickelodeon"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
+const EntOther = dynamic(() => import("@/components/EntOther"), { ssr: false, loading: () => <div className={styles.placeholderSlide} /> });
 
 const slides = [
   { id: "video",         component: IntroVideo },
@@ -39,8 +42,7 @@ const slides = [
 
 
 export default function Home() {
-  const { currentSlide, setTotalSlides } = useDeck();
-  const [hasStarted, setHasStarted] = useState(false);
+  const { currentSlide, setTotalSlides, hasStarted, startDeck } = useDeck();
 
   useEffect(() => {
     setTotalSlides(slides.length);
@@ -53,30 +55,24 @@ export default function Home() {
           autoPlay 
           muted 
           playsInline 
+          preload="metadata"
           className={styles.backgroundVideo}
         >
           <source src="/video/vidlanding.mp4" type="video/mp4" />
         </video>
         <div className={styles.videoOverlay} />
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className={styles.startContent}
-        >
+        <div className={`${styles.startContent} ${styles.animateSlideUp}`}>
           <span className={styles.eyebrow}>THE EXPERIENCE BEGINS</span>
           <h1 className={styles.startTitle}>MALL OF AMERICA</h1>
-        </motion.div>
+        </div>
 
-        <motion.button 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className={styles.enterBtn}
-          onClick={() => setHasStarted(true)}
+        <button 
+          className={`${styles.enterBtn} ${styles.animateFadeInSlow}`}
+          onClick={startDeck}
         >
           ENTER THE DECK
-        </motion.button>
+        </button>
       </div>
     );
   }

@@ -5,6 +5,8 @@ import React, { createContext, useContext, useState, ReactNode } from "react";
 interface DeckContextType {
   currentSlide: number;
   totalSlides: number;
+  hasStarted: boolean;
+  startDeck: () => void;
   nextSlide: () => void;
   prevSlide: () => void;
   goToSlide: (index: number) => void;
@@ -14,8 +16,11 @@ interface DeckContextType {
 const DeckContext = createContext<DeckContextType | undefined>(undefined);
 
 export function DeckProvider({ children }: { children: ReactNode }) {
+  const [hasStarted, setHasStarted] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [totalSlides, setTotalSlides] = useState(0);
+
+  const startDeck = () => setHasStarted(true);
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1 < totalSlides ? prev + 1 : 1));
@@ -32,7 +37,16 @@ export function DeckProvider({ children }: { children: ReactNode }) {
   };
 
   return (
-    <DeckContext.Provider value={{ currentSlide, totalSlides, nextSlide, prevSlide, goToSlide, setTotalSlides }}>
+    <DeckContext.Provider value={{ 
+      hasStarted, 
+      startDeck, 
+      currentSlide, 
+      totalSlides, 
+      nextSlide, 
+      prevSlide, 
+      goToSlide, 
+      setTotalSlides 
+    }}>
       {children}
     </DeckContext.Provider>
   );

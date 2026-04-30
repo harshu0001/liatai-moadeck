@@ -49,6 +49,7 @@ export default function IntroVideo() {
         muted={isMuted}
         onEnded={handleVideoEnd}
         playsInline
+        preload="metadata"
       />
       
       <div className={styles.controls}>

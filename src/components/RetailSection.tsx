@@ -13,6 +13,7 @@ export default function RetailSection() {
           muted
           loop
           playsInline
+          preload="metadata"
           className={styles.bgImage}
         />
         <div className={styles.overlay} />

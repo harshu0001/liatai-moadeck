@@ -6,6 +6,8 @@ import Navbar from "@/components/Navbar";
 import { DeckProvider } from "@/components/DeckContext";
 
 
+import { LayoutContent } from "@/components/LayoutContent";
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -30,29 +32,9 @@ export default function RootLayout({
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body suppressHydrationWarning>
         <DeckProvider>
-          <div className="cinematic-vignette" />
-          <Navbar />
-          {children}
-
-          {/* Global mall logo watermark — bottom right on every slide */}
-          <Image
-            src="/images/malllogo.png"
-            alt="Mall of America"
-            width={120}
-            height={60}
-            style={{
-              position: "fixed",
-              bottom: "24px",
-              right: "28px",
-              zIndex: 999,
-              objectFit: "contain",
-              opacity: 0.85,
-              filter: "drop-shadow(0 2px 8px rgba(0,0,0,0.5))",
-              pointerEvents: "none",
-              userSelect: "none",
-            }}
-            priority
-          />
+          <LayoutContent>
+            {children}
+          </LayoutContent>
         </DeckProvider>
       </body>
     </html>

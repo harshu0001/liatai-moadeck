@@ -16,6 +16,7 @@ export default function EventsSection() {
           src="/images/events_platform_bg.png"
           alt="Events & Platform"
           fill
+          sizes="100vw"
           className={styles.bgImage}
         />
         <div className={styles.overlay} />

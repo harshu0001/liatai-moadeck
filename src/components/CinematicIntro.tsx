@@ -18,6 +18,7 @@ export default function CinematicIntro() {
           alt="Mall of America Interior"
           fill
           priority
+          sizes="100vw"
           className={styles.bgImage}
         />
         <div className={styles.overlay} />
