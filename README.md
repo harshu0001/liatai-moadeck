@@ -45,7 +45,7 @@ npm run start
 ## Design Decisions
 
 - **Video-First Storytelling**: Video is utilized as the primary storytelling medium rather than mere decoration. Features such as autoplay and background videos are implemented to create an immediate emotional connection and showcase the scale of the property within the first few seconds.
-- **Luxury-Inspired UI**: The interface draws inspiration from premium luxury brands. It employs a minimalist "dark theme" chrome, maximizing the impact of visuals and data-driven content while reducing cognitive load.
+- **Luxury-Inspired UI**: The interface draws inspiration from premium luxury brands. It employs a minimalist "dark theme" Chrome, maximizing the impact of visuals and data-driven content while reducing cognitive load.
 - **Non-Linear Interactive Navigation**: Moving away from traditional slide decks, the architecture allows users to control their own journey. A custom slideshow-style navigation system with intuitive progress tracking encourages exploration of the core offerings (Retail, Dining, Entertainment).
 - **Expandable Architecture**: The system is designed with modularity in mind. "Phase 2" components, such as the Leasing and Events deep-dive modals, dynamically expand to provide specific analytics, highlights, and clear calls-to-action without requiring a full page reload or breaking the immersive experience.
 - **Performance Optimization**: Emphasizing a 90+ Lighthouse score, the project leverages Next.js static and dynamic imports, lazy loading for large components, and optimized asset handling. Videos and heavy imagery are strategically loaded to protect critical paint times (LCP).
@@ -57,4 +57,5 @@ npm run start
 - **Performance Analysis**: AI-driven analysis was used to identify performance bottlenecks and suggest optimizations for video preloading strategies, dynamic module loading, and ensuring high Lighthouse scores.
 
 ## License
-This project is for demonstration and sales deck purposes. All rights to Mall of America assets belong to their respective owners.
+This project is for demonstration and sales deck purposes. All rights to Mall of America assets belong to their respective owners.<br/>
+Designed and Developed with ❤️ by **HARSH PRATAP SINGH**
