@@ -55,7 +55,7 @@ export default function Home() {
           playsInline 
           className={styles.backgroundVideo}
         >
-          <source src="/video/landingvid.mp4" type="video/mp4" />
+          <source src="/video/vidlanding.mp4" type="video/mp4" />
         </video>
         <div className={styles.videoOverlay} />
 
