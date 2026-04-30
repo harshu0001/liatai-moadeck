@@ -8,7 +8,7 @@ export default function RetailSection() {
     <section className={styles.section}>
       <div className={styles.imageWrapper}>
         <video
-          src="/video/retail.mp4"
+          src="/video/vidretail.mp4"
           autoPlay
           muted
           loop

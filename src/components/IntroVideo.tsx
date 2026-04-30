@@ -43,7 +43,7 @@ export default function IntroVideo() {
     <div className={styles.videoContainer}>
       <video
         ref={videoRef}
-        src="/intro/intro.mp4"
+        src="/intro/vidintro.mp4"
         className={styles.video}
         autoPlay
         muted={isMuted}

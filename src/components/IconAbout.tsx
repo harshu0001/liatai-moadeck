@@ -46,7 +46,7 @@ export default function IconAbout() {
       {/* Full-bleed background video */}
       <video
         className={styles.bgVideo}
-        src="/video/About.mp4"
+        src="/video/vidabout.mp4"
         autoPlay
         muted
         loop
