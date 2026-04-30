@@ -11,7 +11,7 @@ export default function IconToday() {
       {/* ── Full-bleed background video ── */}
       <video
         className={styles.bgVideo}
-        src="/video/presentday.mp4"
+        src="/video/presentvid.mp4"
         autoPlay
         muted
         loop

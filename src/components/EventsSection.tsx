@@ -20,30 +20,30 @@ export default function EventsSection() {
         />
         <div className={styles.overlay} />
       </div>
-      <div className={styles.content} style={{ width: "100%", maxWidth: "100%", margin: 0, display: "flex", justifyContent: "center" }}>
+      <div className={styles.content}>
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           viewport={{ once: true }}
-          style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", maxWidth: "800px" }}
+          className={styles.centeredContent}
         >
           <span className={styles.eyebrow}>Global Stage</span>
           <h2 className={styles.title}>
             VIBRANT <br/>
-            <span style={{ color: "#ffffff", textShadow: "0 0 10px #facc15, 0 0 20px #facc15, 0 0 40px #facc15" }}>EXPERIENCES</span>
+            <span className={styles.neonGold}>EXPERIENCES</span>
           </h2>
-          <p className={styles.description} style={{ fontWeight: "bold", color: "#ffffff" }}>
+          <p className={styles.description}>
             With over 300 events annually, Mall of America is a premier platform for 
             celebrity appearances, concerts, and community celebrations. From 
             international fashion shows to cultural festivals, the stage is always set.
           </p>
-          <div className={styles.features} style={{ display: "flex", gap: "2rem", justifyContent: "center", marginTop: "2rem", width: "100%" }}>
-            <div className={styles.feature} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "16px", padding: "2rem", backdropFilter: "blur(12px)", flex: "1 1 0", minWidth: "200px" }}>
+          <div className={styles.features}>
+            <div className={styles.cardFeature}>
               <span className={styles.featureValue}>300+</span>
               <span className={styles.featureLabel}>Annual Events</span>
             </div>
-            <div className={styles.feature} style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.15)", borderRadius: "16px", padding: "2rem", backdropFilter: "blur(12px)", flex: "1 1 0", minWidth: "200px" }}>
+            <div className={styles.cardFeature}>
               <span className={styles.featureValue}>1.3B+</span>
               <span className={styles.featureLabel}>Total Visitors</span>
             </div>
@@ -53,7 +53,7 @@ export default function EventsSection() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsModalOpen(true)}
-            style={{ marginTop: "3rem", padding: "14px 32px", background: "#facc15", color: "#000", border: "none", borderRadius: "30px", fontWeight: "bold", letterSpacing: "0.15em", textTransform: "uppercase", cursor: "pointer", display: "flex", alignItems: "center", gap: "10px" }}
+            className={styles.ctaButton}
           >
             Explore Hosting Capabilities
           </motion.button>

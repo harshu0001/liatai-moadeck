@@ -5,7 +5,8 @@
   min-height: 100dvh;
   display: flex;
   align-items: center;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--bg-primary);
 }
 
@@ -49,9 +50,15 @@
 
 .title {
   font-size: clamp(2.5rem, 5vw, 4rem);
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0.5rem;
   line-height: 1.1;
   font-family: var(--font-playfair);
+}
+
+@media (min-height: 800px) {
+  .title {
+    margin-bottom: var(--spacing-md);
+  }
 }
 
 .neonGold {
@@ -80,6 +87,13 @@
 .features {
   display: flex;
   gap: var(--spacing-xl);
+  margin-top: 1rem;
+}
+
+@media (min-height: 800px) {
+  .features {
+    margin-top: 2rem;
+  }
 }
 
 .feature {
@@ -117,12 +131,20 @@
 }
 
 .description {
-  font-size: 1.1rem;
-  line-height: 1.6;
+  font-size: 1rem;
+  line-height: 1.5;
   color: #ffffff;
   font-weight: 500;
   max-width: 600px;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 1rem;
+}
+
+@media (min-height: 800px) {
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+  }
 }
 
 @media (max-width: 768px) {
@@ -153,4 +175,72 @@
   .overlay {
     background: rgba(0,0,0,0.7);
   }
+}
+
+.centeredContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+@media (min-height: 800px) {
+  .centeredContent {
+    padding: 4rem 2rem;
+  }
+}
+
+.ctaButton {
+  margin-top: 1.5rem;
+  padding: 12px 28px;
+  background: var(--brand-gold, #facc15);
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+@media (min-height: 800px) {
+  .ctaButton {
+    margin-top: 3rem;
+    padding: 14px 32px;
+    font-size: 0.85rem;
+  }
+}
+
+.ctaButton:hover {
+  background: #fff;
+  transform: scale(1.05);
+}
+
+.cardFeature {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 1.25rem;
+  backdrop-filter: blur(12px);
+  flex: 1 1 0;
+  min-width: 200px;
+  transition: border-color 0.3s ease;
+}
+
+@media (min-height: 800px) {
+  .cardFeature {
+    padding: 2rem;
+  }
+}
+
+.cardFeature:hover {
+  border-color: var(--brand-gold);
 }
